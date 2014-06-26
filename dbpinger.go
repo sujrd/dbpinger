@@ -13,7 +13,7 @@ import (
 
 //Place here any values that you want to check
 var dbStatusCheck = map[string]string {
-//  "wsrep_cluster_state_uuid"
+//  "wsrep_cluster_state_uuid" This two things are hardcoded
 //  "wsrep_local_state_uuid"
   "wsrep_cluster_status" : "Primary",
   "wsrep_connected" : "ON",
@@ -64,6 +64,7 @@ func pingHandler(w http.ResponseWriter, r *http.Request) {
 func checkDB(dbhost, dbport, dbuser, dbpass, dbname string) bool {
 
   db,err := newDBConnection(dbhost, dbport, dbuser, dbpass, dbname)
+  defer db.Close()
 
   if err != nil {
     log.Println("Connection failed !")
@@ -140,6 +141,7 @@ func checkValue(name,value string) bool {
     return dbStatusCheck[name] == value
 }
 
+//You must close the opened connection! 
 func newDBConnection(dbhost, dbport, dbuser, dbpass, dbname string) (*sql.DB, error) {
 
   key := buildKey(dbhost, dbport, dbuser, dbpass, dbname)
