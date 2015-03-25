@@ -16,7 +16,7 @@ The checks the dbPinger perform currently are:
   - Ensure wsrep_local_state equals 4
   - Ensure that wsrep_cluster_state_uuid equals wsrep_local_state_uuid.
 
-$$ Compilation
+## Compilation
 
 This dbPinger utility is written in Go so you need a Go development environment in order to compile it. If you are using Ubuntu/Debian is as simple as:
 
