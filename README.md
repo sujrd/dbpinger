@@ -37,7 +37,7 @@ export PATH=$GOPATH/bin:$PATH
 You may want to add the GOPATH and PATH variables to your bash_profiles (MAC) or bashrc (Linux). Afterwards we need to install dependencies:
 
     go get github.com/go-sql-driver/mysql
-    go get code.google.com/p/gcfg
+    go get gopkg.in/gcfg.v1
 
 finally we can build the dbPinger by downloading the source code and compiling it with:
 
