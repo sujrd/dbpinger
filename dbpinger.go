@@ -8,7 +8,7 @@ import (
   "net/http"
   "flag"
   _ "github.com/go-sql-driver/mysql"
-  "code.google.com/p/gcfg"
+  "gopkg.in/gcfg.v1"
 )
 
 //Place here any values that you want to check
