@@ -43,7 +43,7 @@ func main() {
   err := gcfg.ReadFileInto(&cfg, confFile)
 
   if err != nil {
-    fmt.Println("Failed to load config file " + confFile);
+    fmt.Println("Error: Failed to load config file " + confFile + " : "+err.Error());
 		fmt.Println(err)
 		os.Exit(1)
   }
@@ -67,14 +67,14 @@ func checkDB(dbhost, dbport, dbuser, dbpass, dbname string) bool {
   defer db.Close()
 
   if err != nil {
-    log.Println("Connection failed !")
+    log.Println("Error: Connection failed: "+err.Error())
     return false
   }
 
   rows,err := db.Query("SHOW STATUS")
 
   if err != nil {
-    log.Println("Query failed")
+    log.Println("Error: Query failed: "+err.Error())
     return false
   }
 
@@ -94,12 +94,12 @@ func checkDB(dbhost, dbport, dbuser, dbpass, dbname string) bool {
       err = rows.Scan(&name, &value)
 
       if err != nil {
-        log.Println("Get Rows failed !")
+        log.Println("Error: Get Rows failed: "+err.Error())
         return false
       } 
 
       if !checkValue(name, value) {
-        log.Println("Error: " + name + ": " + value)
+        log.Println("Error: " + name + " : " + value)
         return false
       }
 
