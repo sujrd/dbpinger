@@ -33,7 +33,7 @@ func TestConfigLoad(t *testing.T) {
 		t.Errorf("DB Host %s is not debian-sys-maint", cfg.Main.DBUser)
 	}
 
-	if cfg.Main.DBPass != "0&542%" {
+	if cfg.Main.DBPass != "0&5#42%" {
 		t.Errorf("DB Pass %s does not match ", cfg.Main.DBPass)
 	}
 

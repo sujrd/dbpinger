@@ -49,11 +49,11 @@ Create a configuration file that contains the following:
 
 ```
 [main]
-listen = 4146       # Listening port the load balancer uses to request health check
-dbhost = localhost  # Cluster node connection host.
-dbport = 3306       # Cluster node port.
-dbuser = <user>     # Cluster node username.
-dbpass = <pass>     # Cluster node password.
+listen = "4146"       # Listening port the load balancer uses to request health check
+dbhost = "localhost"  # Cluster node connection host.
+dbport = "3306"       # Cluster node port.
+dbuser = "<user>"     # Cluster node username.
+dbpass = "<pass>"     # Cluster node password.
 ```
 
 then run the daemon with:
